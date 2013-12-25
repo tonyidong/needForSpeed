@@ -1,5 +1,5 @@
 package needForSpeed;
 
-public class Self {
+public class Self extends Car{
 
 }

@@ -47,7 +47,7 @@ public class Cell {
 		StdDraw.rectangle(x, y, halfWidth, halfHeight);
 	}
 	
-	public void draw(Color color){
+	public void drawFilled(Color color){
 		StdDraw.setPenColor(color); 
 		double halfWidth = (grid.getHalfWidth()/grid.getCols()); 
 		double halfHeight = (grid.getHalfHeight()/grid.getRows());
@@ -56,5 +56,20 @@ public class Cell {
 		StdDraw.filledRectangle(x, y, halfWidth, halfHeight);
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cell other = (Cell) obj;
+		if (col != other.col)
+			return false;
+		if (row != other.row)
+			return false;
+		return true;
+	}
 
 }

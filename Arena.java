@@ -6,15 +6,32 @@ public class Arena implements Grid, CellManaging {
 	private final LinkedList<Cell> available;
 	private final int numRows;
 	private final int numCols;
+	private final LinkedList<Cell> forWall;
 	
 	
 	
-	
+	/**
+	 * Construct a game board with the specified rows and columns.
+	 * Initialize a list of available Cells to include all Cells for this game board.
+	 * @param numRows
+	 * @param numCols
+	 */
 	public Arena(int numRows, int numCols) {
 		super();
 		this.available = new LinkedList<Cell>();
+		this.forWall = new LinkedList<Cell>();
 		this.numRows = numRows;
 		this.numCols = numCols;
+		for(int i = 0; i < numRows; i++){
+			for(int j = 0; j < numCols; j++){
+				if((i == 0 || i == (numRows - 1) || (j == 0 || j == (numCols - 1)))){
+					forWall.add(new Cell(i, j, this));
+				}else{
+					available.add(new Cell(i, j, this));
+				}
+//				available.add(new Cell(i, j, this));
+			}
+		}
 		
 	}
 	@Override

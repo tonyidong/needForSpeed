@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Car {
 	
-	final int cRow, cCol;
+	private int cRow, cCol;
 	final private List<Cell> segments;
 	final private CellManaging cm;
 	
@@ -24,7 +24,16 @@ public class Car {
 	}
 	
 	public void Move(Move move){
-		
+		this.cRow += move.getMovedRow();
+		this.cCol += move.getMovedCol();
+		segments.clear();
+		for(int r = cRow-1; r <= cRow+2; r++){
+			for(int c = cCol-1; c <= cCol+1; c++){
+				if(c == cCol || (r == cRow+1 && c == cCol-1) || (r == cRow+1 && c == cCol+1) || (r == cRow-1 && c == cCol-1) || (r == cRow-1 && c == cCol+1)){
+					segments.add(cm.allocateCell(r, c));
+				}
+			}
+		}
 	}
 	
 

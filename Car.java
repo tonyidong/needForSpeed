@@ -36,5 +36,19 @@ public class Car {
 		}
 	}
 	
+	
+	public boolean Collide(Car that){
+		for(Cell x: this.segments){
+			for(Cell y: that.segments){
+				if (x.equals(y)){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	
+	
 
 }

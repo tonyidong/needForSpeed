@@ -25,9 +25,12 @@ public class Car {
 	}
 	
 	public void Move(Move move){
+		segments.clear();
+		System.out.println("Successfully cleared");
+		System.out.println("Before using Move: " + cRow + ", " + cCol);
 		this.cRow += move.getMovedRow();
 		this.cCol += move.getMovedCol();
-		segments.clear();
+		System.out.println("After using Move: " + cRow + ", " + cCol);
 		for(int r = cRow-1; r <= cRow+2; r++){
 			for(int c = cCol-1; c <= cCol+1; c++){
 				if(c == cCol || (r == cRow+1 && c == cCol-1) || (r == cRow+1 && c == cCol+1) || (r == cRow-1 && c == cCol-1) || (r == cRow-1 && c == cCol+1)){
@@ -35,6 +38,7 @@ public class Car {
 				}
 			}
 		}
+		System.out.println("Successfully out of loop");
 	}
 	
 	
@@ -51,6 +55,7 @@ public class Car {
 	
 	public void draw(Color color){
 		for(Cell x: segments){
+			System.out.println("?");
 			x.drawFilled(color);
 		}
 	}

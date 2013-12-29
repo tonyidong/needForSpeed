@@ -9,7 +9,7 @@ public class Main {
 	public static void main(String[] args) {
 		// FIXME Auto-generated method stub
 		int rows = 40;
-		int cols = 20;
+		int cols = 40;
 		Arena arena = new Arena(rows, cols);
 		Self self = new Self(2, cols/2, arena);
 		int score = 0;
@@ -25,8 +25,8 @@ public class Main {
 				opponents.add(newOpponent);
 			}
 			for(Opponent x: opponents){
-				x.moveDownAuto();
 				x.drawItself();
+				x.moveDownAuto();
 			}
 			
 			StdDraw.show(50);

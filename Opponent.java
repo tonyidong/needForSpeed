@@ -25,7 +25,7 @@ public class Opponent extends Car{
 	}
 	
 	public void drawItself(){
-		draw(color);
+		draw(Color.RED);
 	}
 	
 }

@@ -1,5 +1,59 @@
 package needForSpeed;
 
+import java.awt.Color;
+import java.util.LinkedList;
+import java.util.List;
+
 public class Car {
+	
+	private int cRow, cCol;
+	final private List<Cell> segments;
+	final private CellManaging cm;
+	
+	public Car(int row, int col, CellManaging cm){
+		this.cm = cm;
+		this.cRow = row;
+		this.cCol = col;
+		this.segments = new LinkedList<Cell>();
+		for(int r = row-1; r <= row+2; r++){
+			for(int c = col-1; c <= col+1; c++){
+				if(c == col || (r == row+1 && c == col-1) || (r == row+1 && c == col+1) || (r == row-1 && c == col-1) || (r == row-1 && c == col+1)){
+					segments.add(cm.allocateCell(r, c));
+				}
+			}
+		}
+	}
+	
+	public void Move(Move move){
+		this.cRow += move.getMovedRow();
+		this.cCol += move.getMovedCol();
+		segments.clear();
+		for(int r = cRow-1; r <= cRow+2; r++){
+			for(int c = cCol-1; c <= cCol+1; c++){
+				if(c == cCol || (r == cRow+1 && c == cCol-1) || (r == cRow+1 && c == cCol+1) || (r == cRow-1 && c == cCol-1) || (r == cRow-1 && c == cCol+1)){
+					segments.add(cm.allocateCell(r, c));
+				}
+			}
+		}
+	}
+	
+	
+	public boolean Collide(Car that){
+		for(Cell x: this.segments){
+			for(Cell y: that.segments){
+				if (x.equals(y)){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	public void draw(Color color){
+		for(Cell x: segments){
+			x.drawFilled(color);
+		}
+	}
+	
 
 }

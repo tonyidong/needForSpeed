@@ -1,13 +1,14 @@
 package needForSpeed;
 
+import java.awt.Color;
 import java.util.LinkedList;
 import java.util.List;
 
 public class Car {
 	
 	private int cRow, cCol;
-	final private List<Cell> segments;
-	final private CellManaging cm;
+	private final List<Cell> segments;
+	private final CellManaging cm;
 	
 	public Car(int row, int col, CellManaging cm){
 		this.cm = cm;
@@ -48,7 +49,11 @@ public class Car {
 		return false;
 	}
 	
-	
+	public void draw(Color color){
+		for(Cell x: segments){
+			x.drawFilled(color);
+		}
+	}
 	
 
 }

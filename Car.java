@@ -18,14 +18,14 @@ public class Car {
 		for(int r = row-1; r <= row+2; r++){
 			for(int c = col-1; c <= col+1; c++){
 				if(c == col || (r == row+1 && c == col-1) || (r == row+1 && c == col+1) || (r == row-1 && c == col-1) || (r == row-1 && c == col+1)){
-					segments.add(cm.allocateCell(r, c));
+					getSegments().add(cm.allocateCell(r, c));
 				}
 			}
 		}
 	}
 	
 	public void Move(Move move){
-		segments.clear();
+		getSegments().clear();
 		System.out.println("Successfully cleared");
 		System.out.println("Before using Move: " + cRow + ", " + cCol);
 		this.cRow += move.getMovedRow();
@@ -34,7 +34,7 @@ public class Car {
 		for(int r = cRow-1; r <= cRow+2; r++){
 			for(int c = cCol-1; c <= cCol+1; c++){
 				if(c == cCol || (r == cRow+1 && c == cCol-1) || (r == cRow+1 && c == cCol+1) || (r == cRow-1 && c == cCol-1) || (r == cRow-1 && c == cCol+1)){
-					segments.add(cm.allocateCell(r, c));
+					getSegments().add(cm.allocateCell(r, c));
 				}
 			}
 		}
@@ -42,9 +42,25 @@ public class Car {
 	}
 	
 	
+	public int getcRow() {
+		return cRow;
+	}
+
+	public void setcRow(int cRow) {
+		this.cRow = cRow;
+	}
+
+	public int getcCol() {
+		return cCol;
+	}
+
+	public void setcCol(int cCol) {
+		this.cCol = cCol;
+	}
+
 	public boolean Collide(Car that){
-		for(Cell x: this.segments){
-			for(Cell y: that.segments){
+		for(Cell x: this.getSegments()){
+			for(Cell y: that.getSegments()){
 				if (x.equals(y)){
 					return true;
 				}
@@ -54,10 +70,16 @@ public class Car {
 	}
 	
 	public void draw(Color color){
-		for(Cell x: segments){
+		for(Cell x: getSegments()){
 			System.out.println("?");
 			x.drawFilled(color);
+			System.out.println("!");
 		}
+		System.out.println("x");
+	}
+
+	public List<Cell> getSegments() {
+		return segments;
 	}
 	
 

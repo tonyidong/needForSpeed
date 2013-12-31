@@ -21,6 +21,10 @@ public class Opponent extends Car{
 	}
 	
 	public void moveDownAuto(){
+		if(getcRow() <= 3){
+			getSegments().clear();
+			return;
+		}
 		Move(new Move(-1, 0));
 	}
 	

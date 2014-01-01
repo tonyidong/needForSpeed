@@ -26,11 +26,11 @@ public class Car {
 	
 	public void Move(Move move){
 		getSegments().clear();
-		System.out.println("Successfully cleared");
-		System.out.println("Before using Move: " + cRow + ", " + cCol);
+//		System.out.println("Successfully cleared");
+//		System.out.println("Before using Move: " + cRow + ", " + cCol);
 		this.cRow += move.getMovedRow();
 		this.cCol += move.getMovedCol();
-		System.out.println("After using Move: " + cRow + ", " + cCol);
+//		System.out.println("After using Move: " + cRow + ", " + cCol);
 		for(int r = cRow-1; r <= cRow+2; r++){
 			for(int c = cCol-1; c <= cCol+1; c++){
 				if(c == cCol || (r == cRow+1 && c == cCol-1) || (r == cRow+1 && c == cCol+1) || (r == cRow-1 && c == cCol-1) || (r == cRow-1 && c == cCol+1)){
@@ -38,7 +38,7 @@ public class Car {
 				}
 			}
 		}
-		System.out.println("Successfully out of loop");
+//		System.out.println("Successfully out of loop");
 	}
 	
 	
@@ -71,11 +71,11 @@ public class Car {
 	
 	public void draw(Color color){
 		for(Cell x: getSegments()){
-			System.out.println("?");
+//			System.out.println("?");
 			x.drawFilled(color);
-			System.out.println("!");
+//			System.out.println("!");
 		}
-		System.out.println("x");
+//		System.out.println("x");
 	}
 
 	public List<Cell> getSegments() {

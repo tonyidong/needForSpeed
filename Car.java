@@ -24,6 +24,8 @@ public class Car {
 		}
 	}
 	
+	//For the Streak
+	
 	public void Move(Move move){
 		getSegments().clear();
 //		System.out.println("Successfully cleared");

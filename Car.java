@@ -5,11 +5,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Car {
-	
+
 	private int cRow, cCol;
 	private final List<Cell> segments;
 	private final CellManaging cm;
-	
+
 	public Car(int row, int col, Arena arena){
 		this.cm = arena;
 		this.cRow = row;
@@ -31,9 +31,9 @@ public class Car {
 			}
 		}*/
 	}
-	
+
 	//For the Streak
-	
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -63,11 +63,11 @@ public class Car {
 
 	public void Move(Move move, Arena arena){
 		getSegments().clear();
-//		System.out.println("Successfully cleared");
-//		System.out.println("Before using Move: " + cRow + ", " + cCol);
+		//		System.out.println("Successfully cleared");
+		//		System.out.println("Before using Move: " + cRow + ", " + cCol);
 		this.cRow += move.getMovedRow();
 		this.cCol += move.getMovedCol();
-//		System.out.println("After using Move: " + cRow + ", " + cCol);
+		//		System.out.println("After using Move: " + cRow + ", " + cCol);
 		getSegments().add(new Cell(cRow+2, cCol, arena));
 		getSegments().add(new Cell(cRow+1, cCol-1, arena));
 		getSegments().add(new Cell(cRow+1, cCol, arena));
@@ -76,8 +76,8 @@ public class Car {
 		getSegments().add(new Cell(cRow-1, cCol-1, arena));
 		getSegments().add(new Cell(cRow-1, cCol, arena));
 		getSegments().add(new Cell(cRow-1, cCol+1, arena));
-		
-		
+
+
 		/*for(int r = cRow-1; r <= cRow+2; r++){
 			for(int c = cCol-1; c <= cCol+1; c++){
 				if(c == cCol || (r == cRow+1 && c == cCol-1) || (r == cRow+1 && c == cCol+1) || (r == cRow-1 && c == cCol-1) || (r == cRow-1 && c == cCol+1)){
@@ -85,10 +85,10 @@ public class Car {
 				}
 			}
 		}*/
-//		System.out.println("Successfully out of loop");
+		//		System.out.println("Successfully out of loop");
 	}
-	
-	
+
+
 	public int getcRow() {
 		return cRow;
 	}
@@ -115,19 +115,27 @@ public class Car {
 		}
 		return false;
 	}
-	
-	public void draw(Color color){
+
+	public void draw(Color color, Color head){
 		for(Cell x: getSegments()){
-//			System.out.println("?");
-			x.drawFilled(color);
-//			System.out.println("!");
+			//			System.out.println("?");
+			if(x.getCol() == cCol && x.getRow() == cRow+2){
+				x.drawFilledCircle(head);
+			}else if(x.getCol() == cCol){
+				x.drawFilledCircle(color);
+			}
+			
+			else{
+				x.drawFilledCircle(Color.DARK_GRAY);
+			}
+			//			System.out.println("!");
 		}
-//		System.out.println("x");
+		//		System.out.println("x");
 	}
 
 	public List<Cell> getSegments() {
 		return segments;
 	}
-	
+
 
 }

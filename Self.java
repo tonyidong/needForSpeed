@@ -31,7 +31,7 @@ public class Self extends Car{
 	}
 	
 	public void drawMyself(){
-		draw(Color.BLUE);
+		draw(Color.BLUE, Color.gray);
 	}
 	
 	

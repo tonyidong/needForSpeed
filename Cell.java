@@ -56,6 +56,38 @@ public class Cell {
 		StdDraw.filledRectangle(x, y, halfWidth, halfHeight);
 	}
 	
+	public void drawFilledCircle(Color color){
+		StdDraw.setPenColor(color); 
+		double halfWidth = (grid.getHalfWidth()*0.6/grid.getCols()); 
+		double halfHeight = (grid.getHalfHeight()/grid.getRows());
+		double x = this.getCol()*(2*grid.getHalfWidth()*0.6/grid.getCols()) + halfWidth; 
+		double y = this.getRow()*(2*grid.getHalfHeight()/grid.getRows()) + halfHeight; 
+//		StdDraw.filledCircle(x, y, halfHeight*0.8);
+		StdDraw.filledEllipse(x, y, halfWidth, halfHeight);
+	}
+	
+	public void drawFilledEllipse(Color color){
+		StdDraw.setPenColor(color); 
+		double halfWidth = (grid.getHalfWidth()*0.6/grid.getCols()); 
+		double halfHeight = (grid.getHalfHeight()/grid.getRows());
+		double x = this.getCol()*(2*grid.getHalfWidth()*0.6/grid.getCols()) + halfWidth; 
+		double y = this.getRow()*(2*grid.getHalfHeight()/grid.getRows()) + halfHeight; 
+		StdDraw.filledCircle(x, y-0.01, halfWidth*1.1);
+//		StdDraw.filledEllipse(x, y, halfWidth, halfHeight);
+	}
+	
+	public void drawFilledTriangle(Color color){
+		StdDraw.setPenColor(color); 
+		double halfWidth = (grid.getHalfWidth()*0.6/grid.getCols()); 
+		double halfHeight = (grid.getHalfHeight()/grid.getRows());
+		double x = this.getCol()*(2*grid.getHalfWidth()*0.6/grid.getCols()) + halfWidth; 
+		double y = this.getRow()*(2*grid.getHalfHeight()/grid.getRows()) + halfHeight; 
+		StdDraw.filledCircle(x, y-0.01, halfWidth*1.1);
+//		StdDraw.filledEllipse(x, y, halfWidth, halfHeight);
+	}
+	
+	
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

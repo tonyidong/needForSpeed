@@ -22,9 +22,9 @@ public class Self extends Car{
 		this.alive = false;
 	}
 	
-	public void moveHorizontal(Move move){
+	public void moveHorizontal(Move move, Arena arena){
 		if(move.getMovedRow() == 0){
-			Move(move);
+			Move(move, arena);
 		}else{
 			return;
 		}

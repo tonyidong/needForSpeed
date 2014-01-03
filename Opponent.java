@@ -12,20 +12,20 @@ public class Opponent extends Car{
 		color = color.RED;
 	}
 	
-	public void moveVertical(Move move){
+	public void moveVertical(Move move, Arena arena){
 		if(move.getMovedCol() == 0){
-			Move(move);
+			Move(move, arena);
 		}else{
 			return;
 		}
 	}
 	
-	public void moveDownAuto(){
+	public void moveDownAuto(Arena arena){
 		if(getcRow() <= 3){
 			getSegments().clear();
 			return;
 		}
-		Move(new Move(-1, 0));
+		Move(new Move(-1, 0), arena);
 	}
 	
 	public void drawItself(){

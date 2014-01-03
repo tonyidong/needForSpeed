@@ -19,7 +19,7 @@ public class Main {
 		while(true){
 			arena.draw();
 			self.drawMyself();
-			if(Math.random() < 0.05){
+			if(Math.random() < 0.2){
 				int theCol = (int)(Math.random()*(cols-2))+1;
 				System.out.println("Generated a new fucking opponent");
 				Opponent newOpponent = new Opponent(rows-4, theCol, arena);
@@ -27,7 +27,7 @@ public class Main {
 			}
 			for(Opponent x: opponents){
 				x.drawItself();
-				x.moveDownAuto();
+				x.moveDownAuto(arena);
 			}
 			
 			StdDraw.show(100);

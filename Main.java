@@ -19,10 +19,17 @@ public class Main {
 		while(true){
 			arena.draw();
 			self.drawMyself();
-			if(Math.random() < 0.2){
+			if(Math.random() < 0.5){
 				int theCol = (int)(Math.random()*(cols-2))+1;
 				Opponent newOpponent = new Opponent(rows-4, theCol, arena);
 				opponents.add(newOpponent);
+			}
+			if(opponents.size()>1){
+				for(int i = 0; i< opponents.size()-1; i++){
+					if(opponents.get(i).Collide(opponents.get(opponents.size()-1))){
+						opponents.remove(opponents.size()-1);
+					}
+				}
 			}
 			for(Opponent x: opponents){
 				x.drawItself();

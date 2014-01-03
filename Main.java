@@ -21,7 +21,6 @@ public class Main {
 			self.drawMyself();
 			if(Math.random() < 0.2){
 				int theCol = (int)(Math.random()*(cols-2))+1;
-				System.out.println("Generated a new fucking opponent");
 				Opponent newOpponent = new Opponent(rows-4, theCol, arena);
 				opponents.add(newOpponent);
 			}
@@ -32,7 +31,6 @@ public class Main {
 			
 			StdDraw.show(100);
 			StdDraw.clear();
-			System.out.println("Here?");
 		}
 
 	}

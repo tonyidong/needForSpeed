@@ -6,7 +6,7 @@ public class Opponent extends Car{
 	
 	private Color color;
 
-	public Opponent(int row, int col, CellManaging cm) {
+	public Opponent(int row, int col, Arena cm) {
 		super(row, col, cm);
 		// FIXME Auto-generated constructor stub
 		color = color.RED;

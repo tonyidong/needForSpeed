@@ -10,18 +10,26 @@ public class Car {
 	private final List<Cell> segments;
 	private final CellManaging cm;
 	
-	public Car(int row, int col, CellManaging cm){
-		this.cm = cm;
+	public Car(int row, int col, Arena arena){
+		this.cm = arena;
 		this.cRow = row;
 		this.cCol = col;
 		this.segments = new LinkedList<Cell>();
-		for(int r = row-1; r <= row+2; r++){
+		getSegments().add(new Cell(cRow+2, cCol, arena));
+		getSegments().add(new Cell(cRow+1, cCol-1, arena));
+		getSegments().add(new Cell(cRow+1, cCol, arena));
+		getSegments().add(new Cell(cRow+1, cCol+1, arena));
+		getSegments().add(new Cell(cRow, cCol, arena));
+		getSegments().add(new Cell(cRow-1, cCol-1, arena));
+		getSegments().add(new Cell(cRow-1, cCol, arena));
+		getSegments().add(new Cell(cRow-1, cCol+1, arena));
+		/*for(int r = row-1; r <= row+2; r++){
 			for(int c = col-1; c <= col+1; c++){
 				if(c == col || (r == row+1 && c == col-1) || (r == row+1 && c == col+1) || (r == row-1 && c == col-1) || (r == row-1 && c == col+1)){
 					getSegments().add(cm.allocateCell(r, c));
 				}
 			}
-		}
+		}*/
 	}
 	
 	//For the Streak

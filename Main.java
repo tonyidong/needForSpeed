@@ -50,7 +50,7 @@ public class Main {
 			
 			self.Move(mv, arena);
 			
-			if(Math.random() < 0.2){
+			if(Math.random() < 0.1){
 				int theCol = (int)(Math.random()*(cols-2))+1;
 				Opponent newOpponent = new Opponent(rows-4, theCol, arena);
 				opponents.add(newOpponent);
@@ -78,6 +78,9 @@ public class Main {
 			}
 			
 			if(!alive){
+				StdDraw.show(1500);
+				StdDraw.setPenColor(Color.WHITE);
+				StdDraw.filledRectangle(0.5, 0.5, 0.15, 0.1);
 				StdDraw.setPenColor(Color.DARK_GRAY);
 				StdDraw.show(500);
 				StdDraw.text(0.5, 0.55, "Game Over!");
@@ -112,7 +115,7 @@ public class Main {
 				}
 			}
 */			
-			StdDraw.show(50);
+			StdDraw.show(20);
 			StdDraw.clear();
 		}
 		

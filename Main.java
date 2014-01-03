@@ -21,7 +21,8 @@ public class Main {
 		while(true){
 			arena.draw();
 			self.drawMyself();
-			
+			StdDraw.setPenColor(Color.green);
+			StdDraw.text(0.1, 0.01, ""+score);
 			Move mv = new Move(0, 0);
 			
 			if(StdDraw.hasNextKeyTyped()){
@@ -46,7 +47,7 @@ public class Main {
 			
 			self.Move(mv, arena);
 			
-			if(Math.random() < 0.5){
+			if(Math.random() < 0.2){
 				int theCol = (int)(Math.random()*(cols-2))+1;
 				Opponent newOpponent = new Opponent(rows-4, theCol, arena);
 				opponents.add(newOpponent);
@@ -64,16 +65,41 @@ public class Main {
 				if(x.Collide(self)){
 					alive = false;
 				}
-				x.moveDownAuto(arena);
+//				x.moveDownAuto(arena);
+				if(!x.moveDownAuto(arena)){
+					x.setInArena(false);
+//					System.out.println(score);
+//					opponents.remove(x);
+//					opponents.removeFirst();
+				}
 			}
 			
 			if(!alive){
+				StdDraw.setPenColor(Color.DARK_GRAY);
+				StdDraw.text(0.5, 0.5, "Game Over!");
 				break;
 			}
 			
-			StdDraw.show(100);
+			for(int i = 0; i < opponents.size(); i++){
+				if(!opponents.get(i).isInArena()){
+					opponents.remove(i);
+					score++;
+				}
+			}
+			
+			/*for(Opponent x: opponents){
+				if(!x.isInArena()){
+					System.out.println("in here");
+					opponents.remove(x);
+					score++;
+				}
+			}
+*/			
+			StdDraw.show(50);
 			StdDraw.clear();
 		}
+		
+		System.out.println("Score: " + score);
 		
 		StdDraw.show(200);
 		StdDraw.setPenColor(Color.green);

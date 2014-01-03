@@ -34,6 +34,33 @@ public class Car {
 	
 	//For the Streak
 	
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Car other = (Car) obj;
+		if (cCol != other.cCol)
+			return false;
+		if (cRow != other.cRow)
+			return false;
+		if (cm == null) {
+			if (other.cm != null)
+				return false;
+		} else if (!cm.equals(other.cm))
+			return false;
+		if (segments == null) {
+			if (other.segments != null)
+				return false;
+		} else if (!segments.equals(other.segments))
+			return false;
+		return true;
+	}
+
 	public void Move(Move move, Arena arena){
 		getSegments().clear();
 //		System.out.println("Successfully cleared");

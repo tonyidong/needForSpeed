@@ -20,12 +20,19 @@ public class Opponent extends Car{
 		}
 	}
 	
-	public void moveDownAuto(Arena arena){
-		if(getcRow() <= 3){
+	/**
+	 * if out of arena, return false, else return true
+	 * @param arena
+	 * @return
+	 */
+	
+	public boolean moveDownAuto(Arena arena){
+		if(getcRow() < 3){
 			getSegments().clear();
-			return;
+			return false;
 		}
 		Move(new Move(-1, 0), arena);
+		return true;
 	}
 	
 	public void drawItself(){

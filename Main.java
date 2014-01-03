@@ -1,5 +1,6 @@
 package needForSpeed;
 
+import java.awt.Color;
 import java.util.LinkedList;
 
 import sedgewick.StdDraw;
@@ -13,8 +14,9 @@ public class Main {
 		Arena arena = new Arena(rows, cols);
 		Self self = new Self(2, cols/2, arena);
 		int score = 0;
-		StdDraw.setCanvasSize(500, 500);
+		StdDraw.setCanvasSize(700, 700);
 		LinkedList<Opponent> opponents = new LinkedList<Opponent>();
+		boolean alive = true;
 		
 		while(true){
 			arena.draw();
@@ -31,14 +33,29 @@ public class Main {
 					}
 				}
 			}
+			
 			for(Opponent x: opponents){
 				x.drawItself();
+				if(x.Collide(self)){
+					alive = false;
+				}
 				x.moveDownAuto(arena);
+			}
+			
+			if(!alive){
+				break;
 			}
 			
 			StdDraw.show(100);
 			StdDraw.clear();
 		}
+		
+		StdDraw.show(200);
+		StdDraw.setPenColor(Color.green);
+		StdDraw.setPenRadius(0.2);
+		StdDraw.line(0, 0, 1, 1);
+		StdDraw.line(0, 1, 1, 0);
+		StdDraw.text(0.5, 0.5, "Game Over!");
 
 	}
 

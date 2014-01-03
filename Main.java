@@ -26,6 +26,7 @@ public class Main {
 			self.drawMyself();
 			StdDraw.setPenColor(Color.DARK_GRAY);
 			StdDraw.text(0.8, 0.8, "Current Score: "+score);
+			StdDraw.text(0.8, 0.7, "Cars in Arena: "+opponents.size());
 			Move mv = new Move(0, 0);
 			
 			if(StdDraw.hasNextKeyTyped()){

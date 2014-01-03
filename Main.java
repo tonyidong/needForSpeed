@@ -21,6 +21,31 @@ public class Main {
 		while(true){
 			arena.draw();
 			self.drawMyself();
+			
+			Move mv = new Move(0, 0);
+			
+			if(StdDraw.hasNextKeyTyped()){
+				char m = StdDraw.nextKeyTyped();
+				switch(m){
+				case 'W': case 'w':
+					mv = new Move(1, 0);
+					break;
+				case 'A': case 'a':
+					mv = new Move(0, -1);
+					break;
+				case 'S': case 's':
+					mv = new Move(-1, 0);
+					break;
+				case 'D': case 'd':
+					mv = new Move(0, 1);
+					break;
+				default:
+					break;
+				}
+			}
+			
+			self.Move(mv, arena);
+			
 			if(Math.random() < 0.5){
 				int theCol = (int)(Math.random()*(cols-2))+1;
 				Opponent newOpponent = new Opponent(rows-4, theCol, arena);

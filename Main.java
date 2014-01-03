@@ -17,12 +17,15 @@ public class Main {
 		StdDraw.setCanvasSize(700, 700);
 		LinkedList<Opponent> opponents = new LinkedList<Opponent>();
 		boolean alive = true;
+		int minScore = 20;
+		int midScore = 40;
+		int maxScore = 60;
 		
 		while(true){
 			arena.draw();
 			self.drawMyself();
 			StdDraw.setPenColor(Color.green);
-			StdDraw.text(0.1, 0.01, ""+score);
+			StdDraw.text(0.1, 0.01, "Current Score: "+score);
 			Move mv = new Move(0, 0);
 			
 			if(StdDraw.hasNextKeyTyped()){
@@ -76,7 +79,21 @@ public class Main {
 			
 			if(!alive){
 				StdDraw.setPenColor(Color.DARK_GRAY);
-				StdDraw.text(0.5, 0.5, "Game Over!");
+				StdDraw.show(500);
+				StdDraw.text(0.5, 0.55, "Game Over!");
+				StdDraw.show(500);
+				StdDraw.text(0.5, 0.5, "Final Score: " + score);
+				StdDraw.show(1500);
+				StdDraw.setPenColor(Color.BLUE);
+				if(score < minScore){
+					StdDraw.text(0.5, 0.45, "Loser!");
+				}else if(score >= minScore && score < midScore){
+					StdDraw.text(0.5, 0.45, "Weak!");
+				}else if(score >= midScore && score < maxScore){
+					StdDraw.text(0.5, 0.45, "Not too bad!");
+				}else{
+					StdDraw.text(0.5, 0.45, "We have a winner!");
+				}
 				break;
 			}
 			

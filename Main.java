@@ -33,16 +33,16 @@ public class Main {
 				char m = StdDraw.nextKeyTyped();
 				switch(m){
 				case 'W': case 'w':
-					mv = new Move(1, 0);
+					if(self.getcRow()<5) mv = new Move(1, 0);
 					break;
 				case 'A': case 'a':
-					mv = new Move(0, -1);
+					if(self.getcCol()>2) mv = new Move(0, -1);
 					break;
 				case 'S': case 's':
-					mv = new Move(-1, 0);
+					if(self.getcRow()>2) mv = new Move(-1, 0);
 					break;
 				case 'D': case 'd':
-					mv = new Move(0, 1);
+					if(self.getcCol()<cols-3) mv = new Move(0, 1);
 					break;
 				default:
 					break;
@@ -51,7 +51,7 @@ public class Main {
 			
 			self.Move(mv, arena);
 			
-			if(Math.random() < 0.1){
+			if(Math.random() < 0.01){
 				int theCol = (int)(Math.random()*(cols-2))+1;
 				Opponent newOpponent = new Opponent(rows-4, theCol, arena);
 				opponents.add(newOpponent);

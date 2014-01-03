@@ -14,7 +14,7 @@ public class Main {
 		Arena arena = new Arena(rows, cols);
 		Self self = new Self(2, cols/2, arena);
 		int score = 0;
-		StdDraw.setCanvasSize(700, 700);
+		StdDraw.setCanvasSize(1000, 600);
 		LinkedList<Opponent> opponents = new LinkedList<Opponent>();
 		boolean alive = true;
 		int minScore = 20;
@@ -24,8 +24,8 @@ public class Main {
 		while(true){
 			arena.draw();
 			self.drawMyself();
-			StdDraw.setPenColor(Color.green);
-			StdDraw.text(0.1, 0.01, "Current Score: "+score);
+			StdDraw.setPenColor(Color.DARK_GRAY);
+			StdDraw.text(0.8, 0.8, "Current Score: "+score);
 			Move mv = new Move(0, 0);
 			
 			if(StdDraw.hasNextKeyTyped()){
@@ -80,22 +80,22 @@ public class Main {
 			if(!alive){
 				StdDraw.show(1500);
 				StdDraw.setPenColor(Color.WHITE);
-				StdDraw.filledRectangle(0.5, 0.5, 0.15, 0.1);
+				StdDraw.filledRectangle(0.3, 0.5, 0.15, 0.1);
 				StdDraw.setPenColor(Color.DARK_GRAY);
 				StdDraw.show(500);
-				StdDraw.text(0.5, 0.55, "Game Over!");
+				StdDraw.text(0.3, 0.55, "Game Over!");
 				StdDraw.show(500);
-				StdDraw.text(0.5, 0.5, "Final Score: " + score);
+				StdDraw.text(0.3, 0.5, "Final Score: " + score);
 				StdDraw.show(1500);
 				StdDraw.setPenColor(Color.BLUE);
 				if(score < minScore){
-					StdDraw.text(0.5, 0.45, "Loser!");
+					StdDraw.text(0.3, 0.45, "Loser!");
 				}else if(score >= minScore && score < midScore){
-					StdDraw.text(0.5, 0.45, "Weak!");
+					StdDraw.text(0.3, 0.45, "Weak!");
 				}else if(score >= midScore && score < maxScore){
-					StdDraw.text(0.5, 0.45, "Not too bad!");
+					StdDraw.text(0.3, 0.45, "Not too bad!");
 				}else{
-					StdDraw.text(0.5, 0.45, "We have a winner!");
+					StdDraw.text(0.3, 0.45, "We have a winner!");
 				}
 				break;
 			}

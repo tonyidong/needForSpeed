@@ -40,18 +40,18 @@ public class Cell {
 	
 	public void draw(){
 		StdDraw.setPenColor(StdDraw.BLACK);
-		double halfWidth = (grid.getHalfWidth()/grid.getCols()); 
+		double halfWidth = (grid.getHalfWidth()*0.6/grid.getCols()); 
 		double halfHeight = (grid.getHalfHeight()/grid.getRows());
-		double x = this.getCol()*(2*grid.getHalfWidth()/grid.getCols()) + halfWidth; 
+		double x = this.getCol()*(2*grid.getHalfWidth()*0.6/grid.getCols()) + halfWidth; 
 		double y = this.getRow()*(2*grid.getHalfHeight()/grid.getRows()) + halfHeight; 
 		StdDraw.rectangle(x, y, halfWidth, halfHeight);
 	}
 	
 	public void drawFilled(Color color){
 		StdDraw.setPenColor(color); 
-		double halfWidth = (grid.getHalfWidth()/grid.getCols()); 
+		double halfWidth = (grid.getHalfWidth()*0.6/grid.getCols()); 
 		double halfHeight = (grid.getHalfHeight()/grid.getRows());
-		double x = this.getCol()*(2*grid.getHalfWidth()/grid.getCols()) + halfWidth; 
+		double x = this.getCol()*(2*grid.getHalfWidth()*0.6/grid.getCols()) + halfWidth; 
 		double y = this.getRow()*(2*grid.getHalfHeight()/grid.getRows()) + halfHeight; 
 		StdDraw.filledRectangle(x, y, halfWidth, halfHeight);
 	}

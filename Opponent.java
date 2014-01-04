@@ -37,7 +37,7 @@ public class Opponent extends Car{
 	 */
 
 	public boolean moveDownAuto(Arena arena){
-		if(getcRow() < 3){
+		if(getcRow() < 1){
 			getSegments().clear();
 			return false;
 		}else{

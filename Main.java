@@ -9,6 +9,13 @@ public class Main {
 
 	public static void main(String[] args) {
 		// FIXME Auto-generated method stub
+		while(true){
+			run();
+		}
+
+	}
+	
+	public static void run(){
 		int rows = 40;
 		int cols = 40;
 		Arena arena = new Arena(rows, cols);
@@ -33,7 +40,7 @@ public class Main {
 				char m = StdDraw.nextKeyTyped();
 				switch(m){
 				case 'W': case 'w':
-					if(self.getcRow()<5) mv = new Move(1, 0);
+					if(self.getcRow()<6) mv = new Move(1, 0);
 					break;
 				case 'A': case 'a':
 					if(self.getcCol()>2) mv = new Move(0, -1);
@@ -51,7 +58,7 @@ public class Main {
 			
 			self.Move(mv, arena);
 			
-			if(Math.random() < 0.01){
+			if(Math.random() < 0.1){
 				int theCol = (int)(Math.random()*(cols-2))+1;
 				Opponent newOpponent = new Opponent(rows-4, theCol, arena);
 				opponents.add(newOpponent);
@@ -98,6 +105,15 @@ public class Main {
 				}else{
 					StdDraw.text(0.3, 0.45, "We have a winner!");
 				}
+				
+				StdDraw.text(0.8, 0.6, "Type any Key to Start Over");
+				opponents.clear();
+				
+				while(!StdDraw.hasNextKeyTyped()){
+					StdDraw.show(50);
+				}
+				
+				
 				break;
 			}
 			
@@ -120,15 +136,14 @@ public class Main {
 			StdDraw.clear();
 		}
 		
-		System.out.println("Score: " + score);
+		/*System.out.println("Score: " + score);
 		
 		StdDraw.show(200);
 		StdDraw.setPenColor(Color.green);
 		StdDraw.setPenRadius(0.2);
 		StdDraw.line(0, 0, 1, 1);
 		StdDraw.line(0, 1, 1, 0);
-		StdDraw.text(0.5, 0.5, "Game Over!");
-
+		StdDraw.text(0.5, 0.5, "Game Over!");*/
 	}
 
 }

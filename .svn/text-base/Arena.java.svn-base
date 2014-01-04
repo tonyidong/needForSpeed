@@ -68,7 +68,6 @@ public class Arena implements Grid, CellManaging {
 	public boolean allocateCell(Cell cell) {
 		// FIXME Auto-generated method stub
 		if(this.available.contains(cell)){
-			available.remove(cell);
 			return true;
 		}
 		return false;
@@ -79,7 +78,7 @@ public class Arena implements Grid, CellManaging {
 		Cell newCell = new Cell(row, col, this);
 		for(int i = 0; i < available.size(); i++){
 			if(available.get(i).equals(newCell)){
-				return available.remove(i);
+				return available.get(i);
 			}
 		}
 		return null;

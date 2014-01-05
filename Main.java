@@ -27,8 +27,16 @@ public class Main {
 		int minScore = 20;
 		int midScore = 40;
 		int maxScore = 60;
+		double copyrightX = 0.7;
+		double copyrightY = 0.3;
 		
 		while(true){
+			StdDraw.text(copyrightX, copyrightY, "A.Dong");
+			StdDraw.text(0.83, 0.2, "Washington University in St. Louis");
+			copyrightX += 0.003;
+			copyrightY += 0.002;
+			if(copyrightX>0.9) copyrightX = 0.7;
+			if(copyrightY>0.45) copyrightY = 0.3;
 			arena.draw();
 			self.drawMyself();
 			StdDraw.setPenColor(Color.DARK_GRAY);
@@ -86,15 +94,15 @@ public class Main {
 			}
 			
 			if(!alive){
-				StdDraw.show(1500);
+				StdDraw.show(500);
 				StdDraw.setPenColor(Color.WHITE);
 				StdDraw.filledRectangle(0.3, 0.5, 0.15, 0.1);
 				StdDraw.setPenColor(Color.DARK_GRAY);
-				StdDraw.show(500);
+				StdDraw.show(200);
 				StdDraw.text(0.3, 0.55, "Game Over!");
-				StdDraw.show(500);
+				StdDraw.show(200);
 				StdDraw.text(0.3, 0.5, "Final Score: " + score);
-				StdDraw.show(1500);
+				StdDraw.show(200);
 				StdDraw.setPenColor(Color.BLUE);
 				if(score < minScore){
 					StdDraw.text(0.3, 0.45, "Loser!");

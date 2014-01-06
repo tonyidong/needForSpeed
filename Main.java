@@ -33,6 +33,7 @@ public class Main {
 		while(true){
 			StdDraw.text(copyrightX, copyrightY, "A.Dong");
 			StdDraw.text(0.83, 0.2, "Washington University in St. Louis");
+			StdDraw.rectangle(0.83, 0.5, 0.18, 0.48);
 			copyrightX += 0.003;
 			copyrightY += 0.002;
 			if(copyrightX>0.9) copyrightX = 0.7;
@@ -128,7 +129,7 @@ public class Main {
 			for(int i = 0; i < opponents.size(); i++){
 				if(!opponents.get(i).isInArena()){
 					opponents.remove(i);
-					score++;
+					score+=opponents.size();
 				}
 			}
 			

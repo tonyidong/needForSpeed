@@ -105,9 +105,9 @@ public class Main {
 				StdDraw.show(200);
 				StdDraw.setPenColor(Color.BLUE);
 				if(score < minScore){
-					StdDraw.text(0.3, 0.45, "Loser!");
+					StdDraw.text(0.3, 0.45, "Not good at all!");
 				}else if(score >= minScore && score < midScore){
-					StdDraw.text(0.3, 0.45, "Weak!");
+					StdDraw.text(0.3, 0.45, "Not good!");
 				}else if(score >= midScore && score < maxScore){
 					StdDraw.text(0.3, 0.45, "Not too bad!");
 				}else{

@@ -33,6 +33,7 @@ public class Main {
 		while(true){
 			StdDraw.text(copyrightX, copyrightY, "Tony Dong");
 			StdDraw.text(0.83, 0.2, "Washington University in St. Louis");
+			StdDraw.text(0.83, 0.15, "Computer Science & Engineering");
 			StdDraw.rectangle(0.83, 0.5, 0.18, 0.48);
 			copyrightX += 0.003;
 			copyrightY += 0.002;
